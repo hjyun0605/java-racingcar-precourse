@@ -10,8 +10,14 @@ public class CarsService {
 
 	private Cars cars;
 
-	public void initCars(String carNames) {
-		cars = new Cars(Arrays.asList(carNames.split(REGEX_CAR_NAME_SPLIT)));
+	public boolean initCars(String carNames) {
+		try {
+			cars = new Cars(Arrays.asList(carNames.split(REGEX_CAR_NAME_SPLIT)));
+			return true;
+		} catch (IllegalArgumentException e) {
+			System.out.println(e.getMessage());
+		}
+		return false;
 	}
 
 	public Cars getCars() {

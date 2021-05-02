@@ -11,13 +11,18 @@ public class CarsServiceTest {
 
 	@BeforeEach
 	void setUp() {
-		String carNamesStr = "abcde,fghij,k,l,m,nop";
 		carsService = new CarsService();
-		carsService.initCars(carNamesStr);
 	}
 
 	@Test
-	void initCars_ShouldCarSize6() {
-		assertThat(carsService.getCars().getSize()).isEqualTo(6);
+	void initCars_WhenNormalName_ShouldReturnTrue() {
+		String carNamesStr = "abcde,fghij,k,l,m,nop";
+		assertThat(carsService.initCars(carNamesStr)).isTrue();
+	}
+
+	@Test
+	void initCars_WhenNameLenExceedMax_ShouldReturnFalse() {
+		String carNamesStr = "abcdefgh";
+		assertThat(carsService.initCars(carNamesStr)).isFalse();
 	}
 }
