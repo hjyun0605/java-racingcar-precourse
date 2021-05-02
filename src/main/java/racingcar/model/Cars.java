@@ -23,6 +23,10 @@ public class Cars {
 		return cars.size();
 	}
 
+	public List<Car> getCars() {
+		return cars;
+	}
+
 	public Car getCar(int carIndex) {
 		return cars.get(carIndex);
 	}

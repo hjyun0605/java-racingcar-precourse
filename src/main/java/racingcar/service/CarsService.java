@@ -2,6 +2,7 @@ package racingcar.service;
 
 import java.util.Arrays;
 
+import racingcar.model.Car;
 import racingcar.model.Cars;
 import racingcar.utils.RandomUtils;
 
@@ -20,13 +21,16 @@ public class CarsService {
 		return false;
 	}
 
-	public Cars getCars() {
-		return cars;
-	}
-
 	public void move() {
 		for (int i = 0; i < cars.getSize(); i++) {
 			cars.moveCar(i, RandomUtils.getZeroToNineRandomValue());
 		}
+	}
+
+	public void relay() {
+		for (Car car : cars.getCars()) {
+			System.out.println(car.toString());
+		}
+		System.out.println();
 	}
 }

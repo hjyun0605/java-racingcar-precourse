@@ -26,4 +26,11 @@ public class CarTest {
 		assertThat(car.move()).isEqualTo(2);
 		assertThat(car.move()).isEqualTo(3);
 	}
+
+	@Test
+	void toString_ShouldReturnNameAndPosition() {
+		Car car = new Car("abc");
+		car.move();
+		assertThat(car.toString()).isEqualTo("abc : 1");
+	}
 }

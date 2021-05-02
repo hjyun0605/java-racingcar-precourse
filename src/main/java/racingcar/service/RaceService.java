@@ -6,7 +6,7 @@ public class RaceService {
 
 	public void playRace() {
 		initCars();
-		move();
+		moveAndRelay();
 	}
 
 	private void initCars() {
@@ -16,10 +16,11 @@ public class RaceService {
 		} while(!carsService.initCars(carNames));
 	}
 
-	private void move() {
+	private void moveAndRelay() {
 		int moveCount = InputService.getMoveCount();
 		for (int i = 0; i < moveCount; i++) {
 			carsService.move();
+			carsService.relay();
 		}
 	}
 }
