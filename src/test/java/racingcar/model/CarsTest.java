@@ -15,6 +15,6 @@ public class CarsTest {
 		carNames.add("abc");
 		carNames.add("def");
 		Cars cars = new Cars(carNames);
-		assertThat(cars.getCars().size()).isEqualTo(2);
+		assertThat(cars.getSize()).isEqualTo(2);
 	}
 }
