@@ -18,4 +18,12 @@ public class CarTest {
 		assertThat(catchThrowable(() -> new Car(name)))
 			.isInstanceOf(IllegalArgumentException.class);
 	}
+
+	@Test
+	void move_ShouldIncreasePosition() {
+		Car car = new Car("abc");
+		assertThat(car.move()).isEqualTo(1);
+		assertThat(car.move()).isEqualTo(2);
+		assertThat(car.move()).isEqualTo(3);
+	}
 }
