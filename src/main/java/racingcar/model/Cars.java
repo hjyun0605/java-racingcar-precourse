@@ -36,4 +36,25 @@ public class Cars {
 			cars.get(carIndex).move();
 		}
 	}
+
+	public List<Car> getWinners() {
+		Position maxPosition = new Position();
+		List<Car> winners = new ArrayList<>();
+		for (Car car : cars) {
+			maxPosition = addToWinner(winners, car, maxPosition);
+		}
+		return winners;
+	}
+
+	private Position addToWinner(List<Car> winners, Car car, Position maxPosition) {
+		if (car.comparePosition(maxPosition) > 0) {
+			winners.clear();
+			winners.add(car);
+			return car.getPosition();
+		}
+		if (car.isEqualPosition(maxPosition) ) {
+			winners.add(car);
+		}
+		return maxPosition;
+	}
 }

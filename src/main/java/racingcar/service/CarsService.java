@@ -1,6 +1,8 @@
 package racingcar.service;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 import racingcar.model.Car;
 import racingcar.model.Cars;
@@ -32,5 +34,13 @@ public class CarsService {
 			System.out.println(car.toString());
 		}
 		System.out.println();
+	}
+
+	public void showWinners() {
+		List<String> names = new ArrayList<>();
+		for (Car car : cars.getWinners()) {
+			names.add(car.getName());
+		}
+		OutputService.printWinners(names);
 	}
 }

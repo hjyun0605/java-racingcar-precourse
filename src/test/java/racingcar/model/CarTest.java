@@ -2,14 +2,21 @@ package racingcar.model;
 
 import static org.assertj.core.api.Assertions.*;
 
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 public class CarTest {
+	private Car car;
+
+	@BeforeEach
+	void setUp() {
+		String name = "abcde";
+		car = new Car(name);
+	}
+
 	@Test
 	void car_FiveLettersName_ShouldSuccess() {
-		String name = "abcde";
-		Car car = new Car(name);
-		assertThat(car.getName()).isEqualTo(name);
+		assertThat(car.getName()).isEqualTo("abcde");
 	}
 
 	@Test
@@ -21,7 +28,6 @@ public class CarTest {
 
 	@Test
 	void move_ShouldIncreasePosition() {
-		Car car = new Car("abc");
 		assertThat(car.move()).isEqualTo(1);
 		assertThat(car.move()).isEqualTo(2);
 		assertThat(car.move()).isEqualTo(3);
@@ -29,8 +35,7 @@ public class CarTest {
 
 	@Test
 	void toString_ShouldReturnNameAndPosition() {
-		Car car = new Car("abc");
 		car.move();
-		assertThat(car.toString()).isEqualTo("abc : 1");
+		assertThat(car.toString()).isEqualTo("abcde : 1");
 	}
 }

@@ -31,8 +31,8 @@ public class CarsTest {
 		cars.moveCar(0, 5);
 		cars.moveCar(1, 6);
 
-		assertThat(cars.getCar(0).getPosition()).isEqualTo(2);
-		assertThat(cars.getCar(1).getPosition()).isEqualTo(1);
+		assertThat(cars.getCar(0).getPositionValue()).isEqualTo(2);
+		assertThat(cars.getCar(1).getPositionValue()).isEqualTo(1);
 	}
 
 	@Test
@@ -41,7 +41,20 @@ public class CarsTest {
 		cars.moveCar(1, 2);
 		cars.moveCar(2, 1);
 
-		assertThat(cars.getCar(1).getPosition()).isEqualTo(0);
-		assertThat(cars.getCar(2).getPosition()).isEqualTo(0);
+		assertThat(cars.getCar(1).getPositionValue()).isEqualTo(0);
+		assertThat(cars.getCar(2).getPositionValue()).isEqualTo(0);
+	}
+
+	@Test
+	void getWinners() {
+		cars.moveCar(0, 4);
+		cars.moveCar(0, 5);
+		cars.moveCar(1, 6);
+		cars.moveCar(1, 6);
+
+		List<Car> winners = cars.getWinners();
+		assertThat(winners.get(0).getName()).isEqualTo("abc");
+		assertThat(winners.get(1).getName()).isEqualTo("def");
+		assertThat(winners.get(1).getPositionValue()).isEqualTo(2);
 	}
 }

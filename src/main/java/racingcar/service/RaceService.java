@@ -7,6 +7,7 @@ public class RaceService {
 	public void playRace() {
 		initCars();
 		moveAndRelay();
+		showWinners();
 	}
 
 	private void initCars() {
@@ -22,5 +23,9 @@ public class RaceService {
 			carsService.move();
 			carsService.relay();
 		}
+	}
+
+	private void showWinners() {
+		carsService.showWinners();
 	}
 }

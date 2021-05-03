@@ -16,12 +16,23 @@ public class Car {
 		return position.addPosition();
 	}
 
-	public int getPosition() {
+	public Position getPosition() {
+		return position;
+	}
+	public int getPositionValue() {
 		return position.getPosition();
+	}
+
+	public boolean isEqualPosition(Position position) {
+		return this.position.equals(position);
+	}
+
+	public int comparePosition(Position position) {
+		return this.position.comparePosition(position);
 	}
 
 	@Override
 	public String toString() {
-		return String.format("%s : %d", name.getName(), getPosition());
+		return String.format("%s : %d", name.getName(), getPositionValue());
 	}
 }
